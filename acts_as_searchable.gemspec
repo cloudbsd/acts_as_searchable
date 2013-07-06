@@ -7,11 +7,11 @@ require "acts_as_searchable/version"
 Gem::Specification.new do |s|
   s.name        = "acts_as_searchable"
   s.version     = ActsAsSearchable::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of ActsAsSearchable."
-  s.description = "TODO: Description of ActsAsSearchable."
+  s.authors     = ["Qi Li"]
+  s.email       = ["cloudbsd@gmail.com"]
+  s.homepage    = "http://github.com/cloudbsd/acts_as_searchable"
+  s.summary     = "Acts As Votable Gem."
+  s.description = "ActsAsSearchable gem provides full text search feature for database tables."
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
