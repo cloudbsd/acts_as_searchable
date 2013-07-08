@@ -41,10 +41,15 @@ class ActsAsSearchableTest < ActiveSupport::TestCase
   test "post model works" do
     Post.create(title: 'first name', body: 'first body')
     Post.create(title: 'second name', body: 'just body')
+    post = Post.create(title: 'third record', body: 'thrid record')
     assert_equal 2, Post.search('name').size
     assert_equal 2, Post.search('body').size
     assert_equal 1, Post.search('first').size
     assert_equal 1, Post.search('second').size
     assert_equal 0, Post.search('zero').size
+
+    posts = Post.search('zero', [post.id])
+    assert_equal 1, posts.size
+    assert_equal post, posts.first
   end
 end

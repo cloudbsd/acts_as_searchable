@@ -11,12 +11,14 @@ module ActsAsSearchable
     end
 
     module ClassMethods
-      def search(value)
+      def search(value, other_ids=[])
         conditions = []
         self.searchable_fields.each do |field|
           sql_like, sql_value = sql_query_parameters(value)
           conditions << "#{self.table_name}.#{field.to_s} #{sql_like} '#{sql_value}'"
         end
+        str_ids = '(' + other_ids.join(',') + ')'
+        conditions << "#{self.table_name}.id IN #{str_ids}"
         return self.where(conditions.join(' OR '))
       end
     end # module ClassMethods
