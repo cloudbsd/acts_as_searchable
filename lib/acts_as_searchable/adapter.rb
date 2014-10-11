@@ -13,8 +13,8 @@ module ActsAsSearchable
 
     def sql_query_parameters(value)
       if using_postgresql?
-        return '@@', value
-      # return 'ILIKE', value
+      # return '@@', value
+        return 'ILIKE', "%#{value}%"
       else
         return 'LIKE', "%#{value}%"
       end

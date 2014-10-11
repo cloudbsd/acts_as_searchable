@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    acts_as_searchable (0.0.3)
+    acts_as_searchable (0.0.4)
       rails (~> 4.1.0)
 
 GEM
