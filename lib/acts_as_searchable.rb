@@ -17,8 +17,10 @@ module ActsAsSearchable
           sql_like, sql_value = sql_query_parameters(value)
           conditions << "#{self.table_name}.#{field.to_s} #{sql_like} '#{sql_value}'"
         end
-        str_ids = '(' + other_ids.join(',') + ')'
-        conditions << "#{self.table_name}.id IN #{str_ids}"
+        if other_ids.any?
+          str_ids = '(' + other_ids.join(',') + ')'
+          conditions << "#{self.table_name}.id IN #{str_ids}"
+        end
         return self.where(conditions.join(' OR '))
       end
     end # module ClassMethods
